@@ -46,7 +46,7 @@ pipeline {
         }
         stage('remove images'){
             steps{
-                sh "docker rmi $imageName"
+                sh "docker rmi $imageName -f"
             }
         }
 

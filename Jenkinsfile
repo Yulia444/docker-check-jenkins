@@ -9,7 +9,9 @@ pipeline {
     agent any
     stages {
         stage('git clone') {
-            git url: 'https://github.com/Yulia444/docker-image-demo-check.git', branch: 'docker'
+            steps {
+                git url: 'https://github.com/Yulia444/docker-image-demo-check.git', branch: 'docker'
+            }
         }
         stage('build images') {
             steps {

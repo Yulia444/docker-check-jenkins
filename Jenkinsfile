@@ -44,9 +44,10 @@ pipeline {
                 }
             }
         }
-        stage('remove images'){
+        stage('remove image and container'){
             steps{
                 sh "docker rmi $imageName -f"
+                sh "docker container rm demo"
             }
         }
 

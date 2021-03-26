@@ -21,6 +21,20 @@ pipeline {
             }
             
         }
+        stage('run image') {
+            steps {
+                script {
+                    sh "docker run --name demo 5000:5000 -d $imageName"
+                }
+            }
+        }
+        stage('stop running image') {
+            steps {
+                script {
+                    sh "docker stop demo"
+                }
+            }
+        }
         stage('deploy images'){
             steps{
                 script {

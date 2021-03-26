@@ -8,7 +8,10 @@ pipeline {
     }
     agent any
     stages {
-        stage('build images'){
+        stage('git clone') {
+            git url: 'https://github.com/Yulia444/docker-image-demo-check.git', branch: 'docker'
+        }
+        stage('build images') {
             steps {
                 script {
                     dockerImage = docker.build(imageName1, '.')

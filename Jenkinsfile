@@ -24,7 +24,7 @@ pipeline {
         stage('run image') {
             steps {
                 script {
-                    sh "docker run --name demo 5000:5000 -d $imageName"
+                    sh "docker run --name demo -d -p 5000:5000  $imageName"
                 }
             }
         }
